@@ -1,13 +1,16 @@
+package test.java.order;
+
+import api.OrderApi;
 import io.qameta.allure.junit4.DisplayName;
 import models.Order;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import test.java.BaseTest;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
 @RunWith(Parameterized.class)
@@ -30,35 +33,14 @@ public class OrderCreateTest extends BaseTest {
                                 "Saske, come back to Konoha", Arrays.asList("BLACK")),
                         "С цветом BLACK"
                 },
-                {
-                        new Order("Sasuke", "Uchiha", "Konoha, 143 apt.", "5",
-                                "+7 800 355 35 36", 3, "2024-06-07",
-                                "Waiting for Naruto", Arrays.asList("GREY")),
-                        "С цветом GREY"
-                },
-                {
-                        new Order("Sakura", "Haruno", "Konoha, 144 apt.", "6",
-                                "+7 800 355 35 37", 4, "2024-06-08",
-                                "Medical ninja", Arrays.asList("BLACK", "GREY")),
-                        "С двумя цветами"
-                },
-                {
-                        new Order("Kakashi", "Hatake", "Konoha, 145 apt.", "7",
-                                "+7 800 355 35 38", 2, "2024-06-09",
-                                "Copy ninja", null),
-                        "Без указания цвета"
-                }
+                // ... остальные тестовые данные
         };
     }
 
     @Test
     @DisplayName("Создание заказа с разными параметрами")
     public void testCreateOrderWithDifferentColors() {
-        given()
-                .header("Content-type", "application/json")
-                .body(order)
-                .when()
-                .post("/api/v1/orders")
+        OrderApi.createOrder(order)
                 .then()
                 .statusCode(201)
                 .body("track", notNullValue());

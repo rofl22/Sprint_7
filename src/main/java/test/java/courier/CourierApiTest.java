@@ -1,17 +1,14 @@
-import io.qameta.allure.junit4.DisplayName;
+package test.java.courier;
+
 import io.restassured.RestAssured;
 //import io.restassured.response.Response;
 import models.Courier;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import java.util.List;
-
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
 
 @RunWith(Parameterized.class)
 public class CourierApiTest {

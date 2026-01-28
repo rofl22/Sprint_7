@@ -1,7 +1,10 @@
+package test.java.courier;
+
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import models.Courier;
 import org.junit.Test;
+import test.java.BaseTest;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
