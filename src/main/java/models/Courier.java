@@ -1,4 +1,5 @@
 package models;
+
 public class Courier {
     private String login;
     private String password;
@@ -12,7 +13,6 @@ public class Courier {
         this.firstName = firstName;
     }
 
-    // Обязательные геттеры для JSON сериализации
     public String getLogin() {
         return login;
     }

@@ -1,0 +1,9 @@
+<archetype>
+  <id>TestAllureSWAG2</id>
+  <sources>
+    <source>src/main/java/App.java</source>
+  </sources>
+  <testSources>
+    <source>src/test/java/test.java.AppTest.java</source>
+  </testSources>
+</archetype>
